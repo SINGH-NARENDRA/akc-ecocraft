@@ -6,7 +6,7 @@
   <title>AKC EcoCraft | Sustainable Bags & Packaging Solutions</title>
   <meta
     name="description"
-    content="AKC EcoCraft manufactures eco-friendly jute and cotton bags for businesses, gifting, packaging, bulk supply, and export requirements."
+    content="AKC EcoCraft manufactures premium, eco-friendly jute and cotton bags for B2B clients, retail packaging, corporate gifting, and bulk requirements."
   />
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
@@ -17,35 +17,42 @@
 
   <style>
     :root {
-      --bg: #f7f4ee;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #5b6470;
-      --green: #1f5d3a;
-      --green-dark: #17462c;
-      --green-soft: #e9f2eb;
-      --sand: #efe4d1;
-      --border: rgba(0, 0, 0, 0.08);
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      --shadow-hover: 0 18px 40px rgba(0, 0, 0, 0.14);
-      --radius: 16px;
-      --max: 1140px;
+      --bg-primary: #fcfbf9;
+      --bg-secondary: #f4f1ea;
+      --card-bg: #ffffff;
+      --text-main: #1c241f;
+      --text-muted: #5c6660;
+      --accent-green: #1a472a;
+      --accent-green-light: #2c6e43;
+      --accent-sand: #e8dfd1;
+      --border-light: rgba(26, 71, 42, 0.08);
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 20px 48px rgba(26, 71, 42, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --container-max: 1200px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html {
       scroll-behavior: smooth;
+      font-size: 16px;
     }
 
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-main);
+      background: var(--bg-primary);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -55,424 +62,689 @@
 
     img {
       max-width: 100%;
+      height: auto;
       display: block;
     }
 
     .container {
-      width: min(92%, var(--max));
+      width: 90%;
+      max-width: var(--container-max);
       margin: 0 auto;
     }
 
+    h1, h2, h3, h4 {
+      color: var(--accent-green);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
     .topbar {
-      position: sticky;
+      position: fixed;
+      width: 100%;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      padding: 16px 0;
+      height: 80px;
     }
 
     .brand {
       display: flex;
       flex-direction: column;
-      line-height: 1.1;
+      line-height: 1.2;
     }
 
     .brand strong {
-      font-size: 1.2rem;
-      color: var(--green-dark);
-      letter-spacing: 0.3px;
+      font-size: 1.25rem;
+      color: var(--accent-green);
+      letter-spacing: 0.5px;
     }
 
     .brand span {
-      font-size: 0.9rem;
-      color: var(--muted);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 32px;
+      align-items: center;
       flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.96rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--accent-green);
+      transition: var(--transition);
     }
 
     .nav-links a:hover {
-      color: var(--green-dark);
+      color: var(--accent-green);
     }
 
-    .hero {
-      background:
-        linear-gradient(rgba(20, 50, 32, 0.68), rgba(20, 50, 32, 0.68)),
-        url('images/img1.png') center/cover no-repeat;
-      color: white;
-      padding: 96px 0 86px;
-      animation: fadeIn 0.9s ease;
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
+    .nav-cta {
+      background: var(--accent-green);
+      color: white !important;
+      padding: 10px 20px;
+      border-radius: 99px;
     }
 
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+    .nav-cta::after {
+      display: none;
     }
 
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 4.2rem);
-      line-height: 1.08;
-      margin: 0 0 14px;
-      animation: slideUp 0.9s ease both;
-    }
-
-    .hero p.lead {
-      font-size: 1.08rem;
-      max-width: 720px;
-      margin: 0 0 24px;
-      color: rgba(255,255,255,0.94);
-      animation: slideUp 1.05s ease both;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-      animation: slideUp 1.2s ease both;
+    .nav-cta:hover {
+      background: var(--accent-green-light);
+      transform: translateY(-2px);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
+      gap: 12px;
+      padding: 16px 32px;
+      border-radius: 99px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      cursor: pointer;
     }
 
     .btn-primary {
-      background: #ffffff;
-      color: var(--green-dark);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      background: var(--accent-green);
+      color: white;
+      box-shadow: var(--shadow-md);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 18px 36px rgba(0,0,0,0.16);
+      background: var(--accent-green-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .btn-secondary {
+    .btn-white {
+      background: white;
+      color: var(--accent-green);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+    }
+
+    .btn-outline {
       background: transparent;
       color: white;
-      border: 1px solid rgba(255,255,255,0.28);
+      border: 1px solid rgba(255,255,255,0.4);
     }
 
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 16px;
-      color: rgba(255,255,255,0.94);
-      font-size: 0.96rem;
-      animation: slideUp 1.35s ease both;
-    }
-
-    .hero-card {
+    .btn-outline:hover {
       background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      animation: slideUp 1.25s ease both;
+      border-color: white;
     }
 
-    .hero-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.15rem;
-    }
-
-    .hero-card ul {
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(255,255,255,0.94);
-    }
-
-    .section {
-      padding: 72px 0;
-      opacity: 0;
-      transform: translateY(22px);
-      animation: reveal 0.8s ease forwards;
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 34px;
-    }
-
-    .section-head h2 {
-      margin: 0 0 10px;
-      color: var(--green-dark);
-      font-size: clamp(1.9rem, 3vw, 2.7rem);
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .trust-strip {
-      margin-top: -28px;
+    .hero {
       position: relative;
-      z-index: 2;
+      padding: 180px 0 120px;
+      background:
+        linear-gradient(to right, rgba(26, 71, 42, 0.85), rgba(26, 71, 42, 0.65)),
+        url('images/img7.png') center/cover no-repeat;
+      color: white;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
     }
 
-    .trust-box {
-      background: white;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      padding: 22px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease backwards;
+      color: white;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s ease 0.1s backwards;
+    }
+
+    .hero p.lead {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 36px;
+      max-width: 90%;
+      animation: fadeUp 0.8s ease 0.2s backwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      animation: fadeUp 0.8s ease 0.3s backwards;
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.4s backwards;
+    }
+
+    .feature-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .feature-tag i {
+      color: #a7d1b3;
+    }
+
+    .b2b-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+      animation: fadeLeft 1s ease 0.3s backwards;
+    }
+
+    .b2b-card h3 {
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .b2b-list {
+      list-style: none;
+    }
+
+    .b2b-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .b2b-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .b2b-list i {
+      color: #a7d1b3;
+      margin-top: 4px;
+      background: rgba(255,255,255,0.1);
+      padding: 8px;
+      border-radius: 50%;
+    }
+
+    .trust-bar {
+      background: var(--card-bg);
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border-light);
+      margin-top: -1px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .trust-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .trust-item {
+      gap: 32px;
       text-align: center;
-      padding: 10px;
     }
 
     .trust-item strong {
       display: block;
-      color: var(--green-dark);
-      margin-bottom: 4px;
-    }
-
-    .trust-item span {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .about-grid,
-    .sourcing-grid,
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .image-card,
-    .content-card,
-    .info-card,
-    .contact-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 100%;
-      min-height: 370px;
-      object-fit: cover;
-      transition: transform 0.35s ease;
-    }
-
-    .image-card:hover img {
-      transform: scale(1.03);
-    }
-
-    .content-card,
-    .info-card,
-    .contact-card {
-      padding: 30px;
-    }
-
-    .content-card h3,
-    .info-card h3,
-    .contact-card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: var(--green-dark);
-      font-size: 1.45rem;
-    }
-
-    .content-card p,
-    .info-card p,
-    .contact-card p {
-      color: var(--muted);
-      margin-top: 0;
-    }
-
-    .bullet-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .bullet-item {
-      background: #faf8f3;
-      border: 1px solid rgba(0,0,0,0.05);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-
-    .stats-grid,
-    .product-grid,
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .stat-card,
-    .product-card,
-    .why-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform 0.28s ease, box-shadow 0.28s ease;
-    }
-
-    .stat-card:hover,
-    .product-card:hover,
-    .why-card:hover,
-    .content-card:hover,
-    .info-card:hover,
-    .contact-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-    }
-
-    .stat-card {
-      padding: 24px 20px;
-      text-align: center;
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: 1.55rem;
-      color: var(--green-dark);
+      color: var(--accent-green);
+      font-size: 1.125rem;
       margin-bottom: 8px;
     }
 
-    .stat-card span {
-      color: var(--muted);
-      font-size: 0.95rem;
+    .trust-item span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
     }
 
-    .product-card img {
+    .section {
+      padding: 100px 0;
+    }
+
+    .bg-alt {
+      background: var(--bg-secondary);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .split-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .split-image img {
       width: 100%;
-      height: 240px;
+      height: 100%;
       object-fit: cover;
-      transition: transform 0.35s ease;
+      aspect-ratio: 4/5;
+      transition: var(--transition);
     }
 
-    .product-card:hover img {
-      transform: scale(1.04);
+    .split-image:hover img {
+      transform: scale(1.05);
     }
 
-    .product-card .text,
-    .why-card .text {
-      padding: 18px;
+    .split-content h2 {
+      text-align: left;
     }
 
-    .product-card h3,
-    .why-card h3 {
-      margin: 0 0 8px;
-      color: var(--green-dark);
+    .split-content p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+    }
+
+    .value-props {
+      display: grid;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .value-prop {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--card-bg);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .value-prop:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .value-prop i {
+      color: var(--accent-green);
+      font-size: 1.25rem;
+      margin-top: 2px;
+    }
+
+    .value-prop div strong {
+      display: block;
+      color: var(--accent-green);
+      margin-bottom: 4px;
+    }
+
+    .value-prop div span {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-green);
+    }
+
+    .product-img {
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-img img {
+      transform: scale(1.08);
+    }
+
+    .product-info {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-info h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .product-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-green);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .product-link i {
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover .product-link i {
+      transform: translateX(4px);
+    }
+
+    .applications-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .app-card {
+      background: var(--card-bg);
+      padding: 40px 32px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--bg-secondary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: var(--accent-green);
+      font-size: 1.5rem;
+    }
+
+    .cta-section {
+      background: var(--accent-green);
+      color: white;
+      text-align: center;
+      padding: 80px 0;
+      border-radius: var(--radius-lg);
+      margin: 60px auto;
+      width: 90%;
+      max-width: var(--container-max);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/></svg>') repeat;
+      opacity: 0.5;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    .cta-content p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 28px;
       font-size: 1.05rem;
     }
 
-    .product-card p,
-    .why-card p {
-      margin: 0;
-      color: var(--muted);
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .contact-info-card {
+      background: var(--card-bg);
+      padding: 48px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+    }
+
+    .contact-info-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .contact-info-card p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+
+    .contact-method:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-method i {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-green);
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    .contact-method div strong {
+      display: block;
+      color: var(--accent-green);
+      margin-bottom: 3px;
+    }
+
+    .contact-method div span {
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
 
-    .why-card {
-      padding: 22px;
+    .social-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f5ef 100%);
+      padding: 48px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
     }
 
-    .icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: var(--green-soft);
-      color: var(--green-dark);
-      display: grid;
-      place-items: center;
-      margin-bottom: 14px;
-      font-size: 1.2rem;
+    .social-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.6rem;
     }
 
-    .highlight-band {
-      background: linear-gradient(135deg, #edf4ee 0%, #f6efe3 100%);
-      border-top: 1px solid rgba(0,0,0,0.04);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin: 20px 0 22px;
-    }
-
-    .contact-item,
-    .social-links a {
-      background: #faf8f3;
-      border: 1px solid rgba(0,0,0,0.05);
-      border-radius: 12px;
-      padding: 14px 16px;
+    .social-card p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
     }
 
     .social-links {
       display: grid;
-      gap: 12px;
+      gap: 16px;
+      margin-bottom: 28px;
     }
 
     .social-links a {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 12px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      gap: 16px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: white;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
     }
 
     .social-links a:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
-      color: var(--green-dark);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-green);
     }
 
     .social-links i {
-      font-size: 1.15rem;
-      width: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-green);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .social-links span {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .social-note {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      box-shadow: var(--shadow-sm);
     }
 
     footer {
@@ -494,20 +766,14 @@
       color: rgba(255,255,255,0.72);
     }
 
-    .reveal-1 { animation-delay: 0.05s; }
-    .reveal-2 { animation-delay: 0.12s; }
-    .reveal-3 { animation-delay: 0.18s; }
-    .reveal-4 { animation-delay: 0.24s; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .fade-up {
+      animation: fadeUp 0.9s ease backwards;
     }
 
-    @keyframes slideUp {
+    @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateY(22px);
       }
       to {
         opacity: 1;
@@ -515,62 +781,79 @@
       }
     }
 
-    @keyframes reveal {
+    @keyframes fadeLeft {
+      from {
+        opacity: 0;
+        transform: translateX(24px);
+      }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
       }
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1024px) {
       .hero-grid,
-      .about-grid,
-      .sourcing-grid,
-      .contact-grid,
-      .trust-box,
-      .stats-grid,
-      .product-grid,
-      .why-grid {
-        grid-template-columns: 1fr 1fr;
+      .split-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
 
+      .products-grid,
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .applications-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 150px 0 90px;
+      }
+    }
+
+    @media (max-width: 768px) {
       .nav {
+        height: auto;
+        padding: 14px 0;
         flex-direction: column;
         align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .hero,
-      .section {
-        padding: 56px 0;
+        gap: 12px;
       }
 
-      .hero-grid,
-      .about-grid,
-      .sourcing-grid,
-      .contact-grid,
-      .trust-box,
-      .stats-grid,
-      .product-grid,
-      .why-grid,
-      .hero-points {
-        grid-template-columns: 1fr;
+      .nav-links {
+        gap: 18px;
       }
 
       .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
       }
 
-      .btn {
-        width: 100%;
+      .hero-features {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .products-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .contact-info-card,
+      .social-card,
+      .b2b-card {
+        padding: 30px 24px;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="topbar">
     <div class="container nav">
       <div class="brand">
@@ -581,8 +864,15 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#products">Products</a>
-        <a href="#sourcing">Sourcing</a>
+        <a href="#applications">Applications</a>
         <a href="#contact">Contact</a>
+        <a
+          class="nav-cta"
+          href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20looking%20for%20bulk%20jute%20or%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing."
+          target="_blank"
+        >
+          WhatsApp
+        </a>
       </div>
     </div>
   </div>
@@ -590,281 +880,308 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="eyebrow">Sustainable Manufacturing • Bulk Supply • Custom Designs</div>
-        <h1>Eco-friendly bags crafted for businesses, branding, and bulk supply.</h1>
+        <div class="eyebrow">
+          <i class="fa-solid fa-leaf"></i>
+          Sustainable Manufacturing • Custom Designs • Bulk Supply
+        </div>
+
+        <h1>Premium eco-friendly bags for businesses, branding, gifting, and bulk supply.</h1>
+
         <p class="lead">
-          AKC EcoCraft manufactures premium jute and cotton bags for businesses looking for sustainable packaging without compromising on quality, durability, or design flexibility.
+          AKC EcoCraft manufactures premium jute and cotton bags for businesses that want sustainable packaging solutions without compromising on quality, design flexibility, and professional presentation.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20looking%20for%20bulk%20jute%20or%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing." target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp Now
+          <a
+            class="btn btn-white"
+            href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20looking%20for%20bulk%20jute%20or%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing."
+            target="_blank"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp Now
           </a>
-          <a class="btn btn-secondary" href="#products">
-            View Products
+
+          <a class="btn btn-outline" href="#products">
+            <i class="fa-solid fa-arrow-down"></i>
+            Explore Products
           </a>
         </div>
 
-        <div class="hero-points">
-          <div>✔ Reusable & Biodegradable</div>
-          <div>✔ Direct Sourcing from Farmers</div>
-          <div>✔ Custom Prints & Branding</div>
-          <div>✔ Bulk & Export Orders Accepted</div>
+        <div class="hero-features">
+          <div class="feature-tag"><i class="fa-solid fa-check"></i> Reusable & Biodegradable</div>
+          <div class="feature-tag"><i class="fa-solid fa-check"></i> Direct Sourcing Mindset</div>
+          <div class="feature-tag"><i class="fa-solid fa-check"></i> Custom Branding Support</div>
+          <div class="feature-tag"><i class="fa-solid fa-check"></i> Bulk Orders Accepted</div>
         </div>
       </div>
 
-      <div class="hero-card">
-        <h3>Built for modern B2B buyers</h3>
-        <ul>
-          <li>Custom jute and cotton bags for retail, gifting, and promotions</li>
-          <li>Bulk supply support for wholesalers and businesses</li>
-          <li>Flexible customization across design, print, size, and handles</li>
-          <li>Reliable manufacturing for sustainable packaging requirements</li>
+      <div class="b2b-card">
+        <h3><i class="fa-solid fa-briefcase"></i> Built for serious buyers</h3>
+        <ul class="b2b-list">
+          <li>
+            <i class="fa-solid fa-store"></i>
+            <span>Suitable for retailers, gift businesses, event organizers, and promotional use cases.</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-pen-ruler"></i>
+            <span>Customization support across size, design, printing, handles, and presentation needs.</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Reliable bulk manufacturing support for repeat orders and business supply requirements.</span>
+          </li>
+          <li>
+            <i class="fa-solid fa-earth-asia"></i>
+            <span>Designed to support modern sustainable packaging goals for brands and businesses.</span>
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <div class="trust-strip">
-    <div class="container trust-box">
+  <section class="trust-bar">
+    <div class="container trust-grid">
       <div class="trust-item">
-        <strong>Eco Materials</strong>
-        <span>Reusable and biodegradable products built for modern packaging needs</span>
+        <strong>Eco-Friendly Materials</strong>
+        <span>Reusable and biodegradable jute and cotton products built for modern business use.</span>
       </div>
       <div class="trust-item">
-        <strong>Farmer-linked Sourcing</strong>
-        <span>Raw material sourced directly with a sustainability-first approach</span>
+        <strong>Responsible Sourcing</strong>
+        <span>Focused on farmer-linked and sustainable sourcing approaches wherever possible.</span>
       </div>
       <div class="trust-item">
         <strong>Custom Manufacturing</strong>
-        <span>Designed for branding, gifting, retail, and corporate use cases</span>
+        <span>Suitable for business branding, gifting, retail packaging, and promotional orders.</span>
       </div>
       <div class="trust-item">
         <strong>Bulk Ready</strong>
-        <span>Suitable for wholesale, large orders, and export-oriented buyers</span>
+        <span>Structured to support wholesale, larger quantity orders, and repeat business demand.</span>
       </div>
     </div>
-  </div>
+  </section>
 
-  <section class="section reveal-1" id="about">
-    <div class="container about-grid">
-      <div class="image-card">
-        <img src="images/img6.png" alt="Eco-friendly custom jute bag" />
+  <section id="about" class="section">
+    <div class="container split-grid">
+      <div class="split-image fade-up">
+        <img src="images/img6.png" alt="AKC EcoCraft eco-friendly bag" />
       </div>
 
-      <div class="content-card">
-        <h3>About AKC EcoCraft</h3>
+      <div class="split-content fade-up" style="animation-delay: 0.1s;">
+        <h2>About AKC EcoCraft</h2>
         <p>
-          AKC EcoCraft is built around a simple belief: sustainability should be practical, scalable, and uncompromising in quality. We manufacture eco-friendly jute and cotton bags for businesses that want packaging solutions aligned with modern environmental expectations and strong product standards.
+          AKC EcoCraft is built on the belief that sustainability should be practical, scalable, and commercially relevant. We manufacture eco-friendly jute and cotton bags for businesses seeking packaging and promotional products that align with both modern brand expectations and responsible product choices.
         </p>
         <p>
-          Our approach goes beyond just making bags. We focus on responsible sourcing, dependable craftsmanship, and customization that helps businesses create packaging and promotional products that are both functional and brand-worthy.
+          Our focus is not limited to producing bags. We aim to create dependable, well-finished products that help businesses present themselves better—whether through retail packaging, promotional gifting, event merchandise, or branded bulk supply.
         </p>
         <p>
-          We also work to source directly from farmers and supply networks in the most sustainable way possible, helping create a more mindful value chain from raw material to finished product. This allows us to stay closer to the source, support natural materials, and build products that reflect both quality and purpose.
+          We also follow a sustainability-first sourcing mindset, with efforts oriented toward sourcing closer to farmers and natural material networks wherever possible. This helps strengthen the connection between responsible raw materials and the finished products we deliver.
         </p>
 
-        <div class="bullet-list">
-          <div class="bullet-item"><strong>Sustainability-first manufacturing:</strong> designed for businesses looking to shift toward more responsible packaging choices.</div>
-          <div class="bullet-item"><strong>Direct sourcing mindset:</strong> focused on raw material linkages that are closer to farmers and more environmentally conscious.</div>
-          <div class="bullet-item"><strong>Business-ready output:</strong> suitable for retail, gifting, events, bulk supply, and promotional requirements.</div>
+        <div class="value-props">
+          <div class="value-prop">
+            <i class="fa-solid fa-leaf"></i>
+            <div>
+              <strong>Sustainability-first approach</strong>
+              <span>Designed for businesses looking to move toward more responsible packaging options.</span>
+            </div>
+          </div>
+
+          <div class="value-prop">
+            <i class="fa-solid fa-link"></i>
+            <div>
+              <strong>Closer-to-source mindset</strong>
+              <span>Focused on responsible sourcing linkages that support natural materials and better product intent.</span>
+            </div>
+          </div>
+
+          <div class="value-prop">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <strong>Professional product output</strong>
+              <span>Crafted for durability, customization, and stronger business presentation.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal-2 highlight-band">
+  <section id="products" class="section bg-alt">
     <div class="container">
-      <div class="section-head">
-        <h2>Why businesses choose us</h2>
-        <p>We combine responsible sourcing, customization, and dependable supply to support real-world business requirements.</p>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <strong>Eco-Friendly</strong>
-          <span>Natural jute and cotton materials aligned with sustainable packaging goals</span>
-        </div>
-        <div class="stat-card">
-          <strong>Customizable</strong>
-          <span>Flexible support for prints, handles, sizes, and design variations</span>
-        </div>
-        <div class="stat-card">
-          <strong>Bulk Supply</strong>
-          <span>Suitable for wholesale requirements, larger order volumes, and repeat demand</span>
-        </div>
-        <div class="stat-card">
-          <strong>Brand Ready</strong>
-          <span>Ideal for businesses, retailers, gifting needs, and promotional campaigns</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section reveal-2" id="products">
-    <div class="container">
-      <div class="section-head">
+      <div class="section-header fade-up">
         <h2>Our Product Range</h2>
-        <p>Functional, customizable, and eco-conscious products designed for businesses, events, retail, and branding requirements.</p>
+        <p class="section-subtitle">
+          Functional, customizable, and eco-conscious bag solutions designed for branding, retail, gifting, events, and bulk business needs.
+        </p>
       </div>
 
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="images/img2.png" alt="Jute shopping bags" />
-          <div class="text">
+      <div class="products-grid">
+        <div class="product-card fade-up">
+          <div class="product-img">
+            <img src="images/img2.png" alt="Jute shopping bags" />
+          </div>
+          <div class="product-info">
             <h3>Jute Shopping Bags</h3>
-            <p>Durable, reusable bags well suited for shopping, retail packaging, and sustainable business use.</p>
+            <p>Durable, reusable bags ideal for retail packaging, shopping applications, and sustainable business presentation.</p>
+            <span class="product-link">Eco-friendly retail solution <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
 
-        <div class="product-card">
-          <img src="images/img3.png" alt="Cotton tote bags" />
-          <div class="text">
+        <div class="product-card fade-up" style="animation-delay: 0.08s;">
+          <div class="product-img">
+            <img src="images/img3.png" alt="Cotton tote bags" />
+          </div>
+          <div class="product-info">
             <h3>Cotton Tote Bags</h3>
-            <p>Lightweight and versatile options ideal for gifting, promotions, events, and daily brand visibility.</p>
+            <p>Lightweight and versatile bags well suited for gifting, daily brand visibility, and event-related requirements.</p>
+            <span class="product-link">Ideal for promotions <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
 
-        <div class="product-card">
-          <img src="images/img4.png" alt="Custom printed bags" />
-          <div class="text">
+        <div class="product-card fade-up" style="animation-delay: 0.16s;">
+          <div class="product-img">
+            <img src="images/img4.png" alt="Custom printed bags" />
+          </div>
+          <div class="product-info">
             <h3>Custom Printed Bags</h3>
-            <p>Tailored designs with custom print, branding, colors, and styling as per business requirements.</p>
+            <p>Designed for businesses that need their logo, identity, artwork, or campaign visuals reflected professionally.</p>
+            <span class="product-link">Brand-ready customization <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
 
-        <div class="product-card">
-          <img src="images/img5.png" alt="Bulk order bags" />
-          <div class="text">
+        <div class="product-card fade-up" style="animation-delay: 0.24s;">
+          <div class="product-img">
+            <img src="images/img5.png" alt="Bulk order solutions" />
+          </div>
+          <div class="product-info">
             <h3>Bulk Order Solutions</h3>
-            <p>Reliable production support for wholesale buyers, business sourcing, and larger quantity orders.</p>
+            <p>Reliable support for larger quantity requirements across wholesale supply, retail chains, gifting, and promotional use.</p>
+            <span class="product-link">Built for business volume <i class="fa-solid fa-arrow-right"></i></span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal-3" id="sourcing">
-    <div class="container sourcing-grid">
-      <div class="content-card">
-        <h3>Responsible sourcing with long-term thinking</h3>
-        <p>
-          Sustainability for us begins before production. We aim to stay closely connected to natural material sourcing and farmer-linked supply chains so that the products we make are grounded in responsible material choices.
-        </p>
-        <p>
-          By focusing on direct sourcing relationships wherever possible, we work toward a more transparent and thoughtful approach to raw materials. This helps us build products that are not only eco-friendly in outcome, but also more aligned with sustainable practices from the beginning.
-        </p>
-
-        <div class="bullet-list">
-          <div class="bullet-item"><strong>Natural material focus:</strong> jute and cotton aligned with reusable and biodegradable product design.</div>
-          <div class="bullet-item"><strong>Sustainable sourcing intent:</strong> closer-to-source procurement that supports a more responsible production chain.</div>
-          <div class="bullet-item"><strong>Better product integrity:</strong> strong material quality combined with dependable stitching and finishing.</div>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <h3>What this means for buyers</h3>
-        <p>
-          Businesses today need more than a supplier. They need a partner who can support sustainability messaging, product quality, and brand presentation at the same time.
-        </p>
-
-        <div class="bullet-list">
-          <div class="bullet-item">Suitable for eco-conscious retail packaging</div>
-          <div class="bullet-item">Useful for corporate gifting and event merchandise</div>
-          <div class="bullet-item">Strong fit for customized business branding</div>
-          <div class="bullet-item">Better alignment with sustainability-focused product lines</div>
-        </div>
-
-        <p style="margin-top: 18px;">
-          <a class="btn btn-primary" href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20interested%20in%20your%20sustainable%20jute%20and%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing." target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Discuss Your Requirement
-          </a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section reveal-4">
+  <section id="applications" class="section">
     <div class="container">
-      <div class="section-head">
-        <h2>Why Choose AKC EcoCraft</h2>
-        <p>A more professional, sustainable, and customization-ready option for businesses looking for eco-friendly bag solutions.</p>
+      <div class="section-header fade-up">
+        <h2>Where our products fit best</h2>
+        <p class="section-subtitle">
+          AKC EcoCraft products are designed to work across multiple business use cases where sustainability, presentation, and customization matter.
+        </p>
       </div>
 
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="icon"><i class="fa-solid fa-leaf"></i></div>
-          <div class="text">
-            <h3>Eco-Friendly Materials</h3>
-            <p>Reusable and biodegradable materials suited for modern sustainable packaging strategies.</p>
-          </div>
+      <div class="applications-grid">
+        <div class="app-card fade-up">
+          <div class="app-icon"><i class="fa-solid fa-gift"></i></div>
+          <h3>Corporate Gifting</h3>
+          <p>Suitable for branded gifting programs, festive giveaways, employee kits, and custom business hampers.</p>
         </div>
 
-        <div class="why-card">
-          <div class="icon"><i class="fa-solid fa-scissors"></i></div>
-          <div class="text">
-            <h3>Quality Craftsmanship</h3>
-            <p>High quality stitching and product finishing designed for durability and regular use.</p>
-          </div>
+        <div class="app-card fade-up" style="animation-delay: 0.08s;">
+          <div class="app-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+          <h3>Retail Packaging</h3>
+          <p>Useful for stores and brands seeking eco-friendly packaging that also strengthens brand image.</p>
         </div>
 
-        <div class="why-card">
-          <div class="icon"><i class="fa-solid fa-pen-ruler"></i></div>
-          <div class="text">
-            <h3>Customization Support</h3>
-            <p>Design flexibility across prints, patterns, handles, sizes, and branding requirements.</p>
-          </div>
-        </div>
-
-        <div class="why-card">
-          <div class="icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-          <div class="text">
-            <h3>Bulk & Business Ready</h3>
-            <p>Well suited for wholesale, business gifting, event use, retail packaging, and repeat demand.</p>
-          </div>
+        <div class="app-card fade-up" style="animation-delay: 0.16s;">
+          <div class="app-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <h3>Promotions & Events</h3>
+          <p>Great for exhibitions, campaigns, product launches, event merchandise, and promotional distribution.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section reveal-4" id="contact">
+  <section class="cta-section fade-up">
+    <div class="cta-content">
+      <h2>Looking for bulk eco-friendly bags for your business?</h2>
+      <p>
+        If you need sustainable jute or cotton bags for packaging, gifting, branding, or promotional use, connect with us directly on WhatsApp for catalog sharing and pricing discussion.
+      </p>
+      <a
+        class="btn btn-white"
+        href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20looking%20for%20bulk%20jute%20or%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing."
+        target="_blank"
+      >
+        <i class="fa-brands fa-whatsapp"></i>
+        Start WhatsApp Enquiry
+      </a>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
     <div class="container contact-grid">
-      <div class="contact-card">
+      <div class="contact-info-card fade-up">
         <h3>Contact Us</h3>
         <p>
-          Reach out for bulk orders, custom designs, product enquiries, or business sourcing discussions.
+          Reach out for bulk orders, custom designs, catalog requests, pricing discussions, and business enquiries.
         </p>
 
-        <div class="contact-list">
-          <div class="contact-item"><strong>Business:</strong> AKC EcoCraft by Aman Kumar and Co.</div>
-          <div class="contact-item"><strong>WhatsApp:</strong> +91 7003636602</div>
-          <div class="contact-item"><strong>Email:</strong> amankumarwb2025@outlook.com</div>
+        <div class="contact-method">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>+91 7003636602</span>
+          </div>
         </div>
 
-        <a class="btn btn-primary" href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20looking%20for%20bulk%20jute%20or%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing." target="_blank">
-          <i class="fa-brands fa-whatsapp"></i> Message on WhatsApp
+        <div class="contact-method">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <span>amankumarwb2025@outlook.com</span>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <i class="fa-solid fa-briefcase"></i>
+          <div>
+            <strong>Business</strong>
+            <span>AKC EcoCraft by Aman Kumar and Co.</span>
+          </div>
+        </div>
+
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20looking%20for%20bulk%20jute%20or%20cotton%20bags.%20Please%20share%20catalog%20and%20pricing."
+          target="_blank"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          Message on WhatsApp
         </a>
       </div>
 
-      <div class="contact-card">
+      <div class="social-card fade-up" style="animation-delay: 0.1s;">
         <h3>Connect with us</h3>
-        <p>Follow and reach out through our social channels for product updates and direct enquiries.</p>
+        <p>
+          Follow our social channels for updates, product showcases, and direct communication.
+        </p>
 
         <div class="social-links">
-          <a href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20interested%20in%20your%20products." target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          <a
+            href="https://wa.me/917003636602?text=Hi%20AKC%20EcoCraft,%20I%20am%20interested%20in%20your%20products."
+            target="_blank"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>WhatsApp</span>
           </a>
+
           <a href="https://instagram.com/ecofriendlyakc" target="_blank">
-            <i class="fa-brands fa-instagram"></i> Instagram
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
           </a>
+
           <a href="https://facebook.com/Ecofriendlyakc" target="_blank">
-            <i class="fa-brands fa-facebook-f"></i> Facebook
+            <i class="fa-brands fa-facebook-f"></i>
+            <span>Facebook</span>
           </a>
         </div>
 
-        <div class="bullet-list" style="margin-top: 20px;">
-          <div class="bullet-item"><strong>Ideal for:</strong> retailers, gift businesses, event organizers, and eco-conscious brands</div>
-          <div class="bullet-item"><strong>Main enquiry channel:</strong> WhatsApp for faster response and catalog sharing</div>
+        <div class="social-note">
+          WhatsApp remains the fastest and most effective way to receive the catalog, discuss pricing, and explore customization requirements.
         </div>
       </div>
     </div>
@@ -879,6 +1196,5 @@
       <small>© 2026 AKC EcoCraft. All rights reserved.</small>
     </div>
   </footer>
-
 </body>
 </html>
